@@ -8,6 +8,7 @@ gen = 0
 
 def eval_genomes(genomes, config):
     global gen
+    gen += 1
     GameState(gen, genomes=genomes, config=config).run()
 
 

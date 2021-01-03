@@ -9,18 +9,20 @@ from src.entities.pipe import Pipe
 
 class GameState:
     def __init__(self, gen, **kwargs):
+        pygame.font.init()
         pygame.display.set_caption("Flappy Bird")
 
+        self.__font = pygame.font.SysFont("comicsans", 20)
         self.__width = 288
         self.__height = 512
         self.__score = 0
         self.__running = True
         self.__debug = True
+        self.__generation = gen
         self.__win = pygame.display.set_mode((self.__width, self.__height))
         self.__clock = pygame.time.Clock()
         self.__genomes = kwargs.get('genomes')
         self.__config = kwargs.get('config')
-        gen += 1
 
         self.__nets = []
         self.__ge = []
@@ -67,6 +69,15 @@ class GameState:
                                       self.__pipes[pipe_ind].get_pipe_bottom_y()), 5)
                 except:
                     pass
+
+        score_label = self.__font.render("Score: " + str(self.__score), 1, (255, 255, 255))
+        self.__win.blit(score_label, (self.__width - score_label.get_width() - 15, 10))
+
+        generation_label = self.__font.render("Gens: " + str(self.__generation), 1, (255, 255, 255))
+        self.__win.blit(generation_label, (10, 10))
+
+        alive_label = self.__font.render("Alive: " + str(len(self.__birds)), 1, (255, 255, 255))
+        self.__win.blit(alive_label, (10, 50))
 
         pygame.display.update()
 
@@ -134,6 +145,10 @@ class GameState:
                 self.__ge.pop(self.__birds.index(bird))
                 self.__birds.pop(self.__birds.index(bird))
 
+    def __check_max_score(self):
+        if self.__score > 50:
+            self.__running = False
+
     def run(self):
         while self.__running and len(self.__birds) > 0:
             self.__remove = []
@@ -143,4 +158,5 @@ class GameState:
             self.__play_decision(pipe_ind)
             self.__check_collide()
             self.__remove_deads()
+            self.__check_max_score()
             self.__draw(pipe_ind)
