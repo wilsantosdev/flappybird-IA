@@ -1,6 +1,8 @@
 # Flappybird-IA
 FlappyBird Clone using NEAT 
 
+You can see it working following the link below 
+
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wilsantosdev/flapbird-IA)
 
 # Installation
