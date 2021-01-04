@@ -1,5 +1,5 @@
-# Flapbird-IA
-FlapBird Clone using NEAT 
+# Flappybird-IA
+FlappyBird Clone using NEAT 
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wilsantosdev/flapbird-IA)
 
