@@ -12,5 +12,5 @@ You can see it working following the link below
 `python3 main.py`
 
 # Objective
-Make a Flapbird gamelike then create a IA that 
+Make a FlappyBird game like then create an IA that 
 learn how to play it.
