@@ -14,3 +14,8 @@ You can see it working following the link below
 # Objective
 Make a FlappyBird game like then create an IA that 
 learn how to play it.
+
+#
+#
+#
+Project based on [tech with tim](https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg) tutorial series 
